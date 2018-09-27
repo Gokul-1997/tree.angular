@@ -99,7 +99,7 @@
         <div class="row">
            <div class="col-md-10">
             <div class="page-col bg-white rounded">
-                <tree-root>
+                <tree-root #tree [nodes]="data" [options]="options" (toggleExpanded)="expand($event)" (focus)="focus($event)" (event)="event($event)">
                 </tree-root>
             </div>
 

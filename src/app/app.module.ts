@@ -13,8 +13,9 @@ import { TreeviewModule } from 'ngx-treeview';
 import { TreeModule } from 'angular-tree-component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FileUploadModule } from 'ng2-file-upload';
-import { ExcelService } from './tree/excel.service';
 
+/*import { ExcelService } from './msc-data/excel.service';
+*/
 
 const routes: Routes = [
       { path: '', component: TreestructureComponent, pathMatch: 'full' },
@@ -26,7 +27,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TreestructureComponent
-  ],
+  ],  
   imports: [
     BrowserModule,
     FormsModule,
@@ -41,7 +42,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {useHash: true})
 
   ],
-  providers: [ExcelService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

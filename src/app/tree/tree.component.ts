@@ -47,8 +47,8 @@ search_term: any;
 
 @ViewChild("tree") public tree: TreeComponent
 
-constructor(public dialog: MatDialog,private http: Http,private router: Router,private excelService:ExcelService,private spinner: NgxSpinnerService) {
- this.http.get('http://182.72.104.66:3050/trees').subscribe(res => {
+constructor(public dialog: MatDialog,private http: Http,private router: Router,private spinner: NgxSpinnerService) {
+ this.http.get('http://192.168.1.53:3000/trees').subscribe(res => {
    this.data = res.json()
 });
 
@@ -82,7 +82,7 @@ console.log(search);
 expand(event){
 if(event.isExpanded && event.node.data.children.length == 0) {
 this.parent = event.node.data.name;
- this.http.get('http://182.72.104.66:3050/trees/'+this.parent).subscribe(res => {
+ this.http.get('http://192.168.1.53:3000/trees/'+this.parent).subscribe(res => {
   for (let datum of res.json()) {
    //this.data[event.node.index].children.push(datum)
     event.node.data.children.push(datum)
@@ -192,12 +192,12 @@ blur(event){
   }
 
   export():void{
-  this.spinner.show();
-    this.http.get('http://182.72.104.66:3050/details/export').subscribe(res => {
+  /*this.spinner.show();
+    this.http.get('http://192.168.1.53:3000/details/export').subscribe(res => {
        this.excel_data = res.json()
        this.excelService.exportAsExcelFile(this.excel_data, 'sample');
        this.spinner.hide();
-    });
+    });*/
   }
 
 
